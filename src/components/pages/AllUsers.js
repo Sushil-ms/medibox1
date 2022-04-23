@@ -73,14 +73,16 @@ const AllUsers = () => {
                   <td>{user.diagnosis}</td>
                   <td>
                     <Button
+                      
                       variant='primary'
                       size='sm'
-                      onClick={() => handleClick('/AddMedication', path)}
+                      onClick={() => handleClick('/addmed', path)}
                     >
                       Add Medication
                     </Button>
                     |
                     <Button
+                      
                       variant='danger'
                       size='sm'
                       onClick={() => handleClick('/View', path)}
