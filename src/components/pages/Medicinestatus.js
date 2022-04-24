@@ -12,7 +12,7 @@ const Medicinestatus = () => {
   const [chartdata, setChartData] = useState([]);
 
   let query = `  from(bucket: "MediBox")
-  |> range(start: -7d)
+  |> range(start: -1d)
   |> filter(fn: (r) => r["_measurement"] == "medicinestatus")
   |> filter(fn: (r) => r["_field"] == "stringdd")
   |> group (columns: ["temp"])   // all durations - each jobname has its table                      // each table has only the last value

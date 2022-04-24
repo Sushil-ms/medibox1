@@ -13,7 +13,7 @@ import {
   Table,
 } from 'react-bootstrap';
 import { ref, child, get, set, onValue,update } from 'firebase/database';
-import database from '../../firebase-config';
+import {database} from '../../firebase-config';
 import { DonutSmallOutlined, SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
 
 const AddMedication1 = () => {

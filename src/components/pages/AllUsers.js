@@ -2,7 +2,7 @@
 import { DataSnapshot, onValue } from 'firebase/database';
 import React,{useState,useEffect} from 'react';
 import { ref, child, get, set } from 'firebase/database';
-import database from '../../firebase-config';
+import {database} from '../../firebase-config';
 import { Form, Badge, Row, Col, Container, Button,Table }from 'react-bootstrap';
 import {BrowserRouter as Router,Link,Route,useRouteMatch,useHistory} from 'react-router-dom';
 import AddMedication from './AddMedication';
@@ -93,9 +93,9 @@ const AllUsers = () => {
                     <Button
                       variant='primary'
                       size='sm'
-                      onClick={() => handleClick('/Edit', path)}
+                      onClick={() => handleClick('/email', path)}
                     >
-                      Edit
+                      Email
                     </Button>
                   </td>
                 </tr>

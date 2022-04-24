@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useHistory, useParam } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ref, child, get, set } from 'firebase/database';
-import database from '../../firebase-config';
+import {database} from '../../firebase-config';
 
 
 const UserForm=()=>{

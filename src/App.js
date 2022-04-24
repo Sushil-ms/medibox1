@@ -16,6 +16,8 @@ import Spo2 from './components/pages/Spo2';
 import AddMedication1 from './components/pages/AddMedication1';
 import Mqtt from './components/pages/Mqtt';
 import Mqtttime from './components/pages/Mqtttime';
+import EmailForm from './components/Forms/EmailForm';
+import Appointments from './components/pages/Appointments';
 
 
 
@@ -60,6 +62,12 @@ function App() {
           </Route>
           <Route exact path='/timeset'>
             <Mqtttime />
+          </Route>
+          <Route exact path='/email'>
+            <EmailForm />
+          </Route>
+          <Route exact path='/Appointments'>
+            <Appointments />
           </Route>
         </Switch>
       </div>

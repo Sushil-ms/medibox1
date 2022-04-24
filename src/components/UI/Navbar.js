@@ -21,6 +21,9 @@ const Navigation=()=>{
             <LinkContainer to='/AllUsers'>
               <Nav.Link>All Patients</Nav.Link>
             </LinkContainer>
+            <LinkContainer to='/Appointments'>
+              <Nav.Link>Appointments</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Container>
       </Navbar>

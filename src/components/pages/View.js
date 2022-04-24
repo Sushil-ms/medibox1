@@ -17,7 +17,7 @@ import { toast } from 'react-toastify';
 
 import { DataSnapshot, onValue } from 'firebase/database';
 import { ref, child, get, set } from 'firebase/database';
-import database from '../../firebase-config';
+import {database} from '../../firebase-config';
 
 import { token,org,bucket,url } from '../../influx-config';
 import { InfluxDB } from '@influxdata/influxdb-client';
