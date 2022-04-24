@@ -1,4 +1,3 @@
-// const mqtt = require('mqtt')
 import mqtt from 'mqtt';
 import 'antd/dist/antd.css';
 import {
@@ -32,8 +31,8 @@ const Mqtttime = () => {
     reconnectPeriod: 1000,
     connectTimeout: 30 * 1000,
     clientId: `mqttjs_ + ${Math.random().toString(16).substr(2, 8)}`,
-    username: 'test_med',
-    password: 'test_med',
+    username: 'eqmx',
+    password: 'public1209',
     will: {
       topic: 'WillMsg',
       payload: 'Connection Closed abnormally..!',
@@ -43,30 +42,61 @@ const Mqtttime = () => {
     rejectUnauthorized: false,
   };
 
-  const [selectedTime, setSelectedTime] = useState('0:00');
+  const [mselectedTime, msetSelectedTime] = useState('0:00');
+  const [aselectedTime, asetSelectedTime] = useState('0:00');
+  const [eselectedTime, esetSelectedTime] = useState('0:00');
+
+  const [morning, setMorning] = useState('');
+  const [evening, setEvening] = useState('');
+  const [afternoon, setAfternoon] = useState('');
   // const [client, setClient] = useState(null);
   const [timeConnectStatus, setTimeConnectStatus] = useState('Connect');
 
   const client = mqtt.connect(url, options);
-
-  const onChange = (time) => {
-    const timeString = moment(time).format('HH:mm');
-    setSelectedTime(timeString);
+  const mcontext = {
+    topic: 'MediBoxMorning',
+    qos: '2',
   };
-
-  console.log(selectedTime);
-
-  const format = 'HH:mm';
-
-  const obj = selectedTime.split(':');
-  const pub = `{ HH: ${obj[0]}, mm: ${obj[1]}}`;
-
-  const context = {
-    topic: 'timeset',
+  const acontext = {
+    topic: 'MediBoxAfternoon',
+    qos: '2',
+  };
+  const econtext = {
+    topic: 'MediBoxEvening',
     qos: '2',
   };
 
-  context.payload = pub;
+  const onChangeMorning = (time) => {
+    const timeString = moment(time).format('HH:mm');
+    msetSelectedTime(timeString);
+    console.log(timeString + ' selected time');
+    const obj = timeString.split(':');
+    const pub = `{ Hour: ${obj[0]}, Minute: ${obj[1]}}`;
+    setMorning(pub);
+    console.log(mcontext);
+  };
+
+  const onChangeAfternoon = (time) => {
+    const timeString = moment(time).format('HH:mm');
+    asetSelectedTime(timeString);
+    console.log(timeString + ' selected time');
+    const obj = timeString.split(':');
+    const pub = `{ Hour: ${obj[0]}, Minute: ${obj[1]}}`;
+    setAfternoon(pub);
+    console.log(acontext);
+  };
+
+  const onChangeEvening = (time) => {
+    const timeString = moment(time).format('HH:mm');
+    esetSelectedTime(timeString);
+    console.log(timeString + ' selected time');
+    const obj = timeString.split(':');
+    const pub = `{ Hour: ${obj[0]}, Minute: ${obj[1]}}`;
+    setEvening(pub);
+    console.log(econtext);
+  };
+
+  const format = 'HH:mm';
 
   const mqttPublish = (context) => {
     const { topic, qos, payload } = context;
@@ -79,8 +109,28 @@ const Mqtttime = () => {
 
   const handleConnectTime = () => {
     console.log('handle connect was pressed');
+    console.log(morning + ' hey this is morn');
+    mcontext.payload = morning;
     if (timeConnectStatus == 'Connected') {
-      mqttPublish(context);
+      mqttPublish(mcontext);
+    }
+  };
+
+  const handleConnectTimeAfternoon = () => {
+    console.log('handle connect was pressed');
+    console.log(morning + ' hey this is morn');
+    acontext.payload = afternoon;
+    if (timeConnectStatus == 'Connected') {
+      mqttPublish(acontext);
+    }
+  };
+
+  const handleConnectTimeEvening = () => {
+    console.log('handle connect was pressed');
+    console.log(morning + ' hey this is morn');
+    econtext.payload = evening;
+    if (timeConnectStatus == 'Connected') {
+      mqttPublish(econtext);
     }
   };
 
@@ -109,13 +159,45 @@ const Mqtttime = () => {
           <TimePicker
             format='HH:mm'
             showNow={false}
-            value={moment(selectedTime, format)}
-            onChange={onChange}
+            value={moment(mselectedTime, format)}
+            onChange={onChangeMorning}
           />
+          <Button className='mx-4' type='submit' onClick={handleConnectTime}>
+            Set Morning Time
+          </Button>
         </Col>
-        <Button className='mx-4' type='submit' onClick={handleConnectTime}>
-          Set Time
-        </Button>
+        <Col>
+          {' '}
+          <TimePicker
+            format='HH:mm'
+            showNow={false}
+            value={moment(aselectedTime, format)}
+            onChange={onChangeAfternoon}
+          />
+          <Button
+            className='mx-4'
+            type='submit'
+            onClick={handleConnectTimeAfternoon}
+          >
+            Set Afternoon Time
+          </Button>
+        </Col>
+        <Col>
+          {' '}
+          <TimePicker
+            format='HH:mm'
+            showNow={false}
+            value={moment(eselectedTime, format)}
+            onChange={onChangeEvening}
+          />
+          <Button
+            className='mx-4'
+            type='submit'
+            onClick={handleConnectTimeEvening}
+          >
+            Set Evening Time
+          </Button>
+        </Col>
       </Row>
     </Container>
   );

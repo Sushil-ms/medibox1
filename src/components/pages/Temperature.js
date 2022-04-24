@@ -204,7 +204,6 @@ const Temperature = () => {
           <Chart data={bodychartdata} />
         </Grid>
       </Grid>
-      
     </Container>
   );
 };

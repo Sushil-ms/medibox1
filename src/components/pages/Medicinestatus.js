@@ -7,12 +7,12 @@ import Paper from '@mui/material/Paper';
 import Chart from '../UI/Chart';
 import Grid from '@material-ui/core/Grid';
 
-const Medicinestatus= () => {
+const Medicinestatus = () => {
   const [influxData, setInfluxData] = useState([]);
   const [chartdata, setChartData] = useState([]);
 
   let query = `  from(bucket: "MediBox")
-  |> range(start: -30d)
+  |> range(start: -7d)
   |> filter(fn: (r) => r["_measurement"] == "medicinestatus")
   |> filter(fn: (r) => r["_field"] == "stringdd")
   |> group (columns: ["temp"])   // all durations - each jobname has its table                      // each table has only the last value
@@ -97,8 +97,6 @@ const Medicinestatus= () => {
           <DataTable data={influxData} />
         </Grid>
       </Grid>
-
-      
     </Container>
   );
 };

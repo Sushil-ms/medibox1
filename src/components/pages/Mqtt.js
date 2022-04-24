@@ -27,7 +27,7 @@ const Mqtt = () => {
   };
   const bpminitalValue = {
     BPM: 0,
-    SpO2: 0,
+    Spo2: 0,
   };
   const [tempclient, setTempClient] = useState(null);
   const [bpmclient, setBpmClient] = useState(null);
@@ -49,7 +49,7 @@ const Mqtt = () => {
     connectTimeout: 30 * 1000,
     clientId: `mqttjs_ + ${Math.random().toString(16).substr(2, 8)}`,
     username: 'emqx',
-    password: 'public120',
+    password: 'public1209',
     will: {
       topic: 'WillMsg',
       payload: 'Connection Closed abnormally..!',
@@ -225,7 +225,7 @@ const Mqtt = () => {
           </Col>
         </Row>
         <Row>
-          <Col className='mt-5'>
+          <Col>
             {/* <Chip avatar={<Avatar>Temp</Avatar>} label={info.message1}></Chip> */}
 
             <Button className='mx-4' type='submit' onClick={handleConnectTemp}>
@@ -272,14 +272,14 @@ const Mqtt = () => {
               textColor='#000000'
               arcsLength={[0.5, 0.5, 0.5]}
               colors={['#5BE12C', '#F5CD19', '#EA4228']}
-              formatTextValue={() => bpminfo.SpO2 + '  %'}
-              percent={bpminfo.SpO2 != 0 ? +bpminfo.SpO2 / 100 - 0.3 : 0}
+              formatTextValue={() => bpminfo.Spo2 + '  %'}
+              percent={bpminfo.Spo2 != 0 ? +bpminfo.Spo2 / 100 - 0.3 : 0}
               arcPadding={0.02}
             />
           </Col>
         </Row>
         <Row>
-          <Col className='mt-5'>
+          <Col className="mb-4">
             {/* <Chip avatar={<Avatar>Bpm</Avatar>} label={info.message1}></Chip> */}
             <Button className='mx-4' type='submit' onClick={handleConnectBpm}>
               {bpmconnectStatus}
