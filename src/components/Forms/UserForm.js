@@ -9,7 +9,7 @@ import {database} from '../../firebase-config';
 
 const UserForm=()=>{
 
-    const initialValues={name:'',age:'',dob:'',email:'',phNumber:'',height:'',weight:'',diagnosis:''};
+    const initialValues={name:'',age:'',dob:'',email:'',phNumber:'',height:'',weight:'',diagnosis:'',allergy:'',BMI:'',BSA:'',physicalExamination:'',plan:'',cheifComplaints:'',currentMedication:''};
     const [formValues,setFormValues]=useState(initialValues);
     const [isSubmit,setIsSubmit]=useState(false);
 
@@ -46,7 +46,6 @@ const UserForm=()=>{
 
         }
     };
-
 
 
 
@@ -154,12 +153,100 @@ const UserForm=()=>{
                 </Form.Group>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Form.Group className='mb-3' controlId='BMI'>
+                  <Form.Label>BMI</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='number'
+                    value={formValues.BMI}
+                    onChange={handleChange}
+                    placeholder='Enter BMI'
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className='mb-3' controlId='BSA'>
+                  <Form.Label>BSA</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='number'
+                    value={formValues.BSA}
+                    onChange={handleChange}
+                    placeholder='Enter BSA'
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Group className='mb-3' controlId='allergy'>
+                  <Form.Label>Allergy</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='text'
+                    value={formValues.allergy}
+                    onChange={handleChange}
+                    placeholder='Enter Allergy'
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className='mb-3' controlId='cheifComplaints'>
+                  <Form.Label>Chief Complaints</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='text'
+                    value={formValues.cheifComplaints}
+                    onChange={handleChange}
+                    placeholder='Enter Chief Complaints'
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Group className='mb-3' controlId='physicalExamination'>
+                  <Form.Label>Physical Examination</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='text'
+                    value={formValues.physicalExamination}
+                    onChange={handleChange}
+                    placeholder='Physical Examination'
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group className='mb-3' controlId='plan'>
+                  <Form.Label>Medical Plan</Form.Label>
+                  <Form.Control
+                    className='col-4'
+                    type='text'
+                    value={formValues.plan}
+                    onChange={handleChange}
+                    placeholder='Enter Medical Plan'
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+
             <Form.Group className='mb-3' controlId='diagnosis'>
               <Form.Label>Enter Diagnosis</Form.Label>
               <Form.Control
                 as='textarea'
                 rows={4}
                 value={formValues.diagnosis}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='currentMedication'>
+              <Form.Label>Enter Current Medication</Form.Label>
+              <Form.Control
+                as='textarea'
+                rows={4}
+                value={formValues.currentMedication}
                 onChange={handleChange}
               />
             </Form.Group>

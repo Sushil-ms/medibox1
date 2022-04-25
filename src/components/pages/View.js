@@ -128,34 +128,69 @@ const View = () => {
     <div className='my-auto'>
       <Container className='mt-5'>
         <Row className='justify-content-md-center'>
-          <Card style={{ width: '18rem' }}>
-            <ListGroup className='list-group-flush'>
-              <ListGroupItem>
-                {'Name : ' + (data && data[0] ? data[0].name : 'Loading')}
-              </ListGroupItem>
+          <Col md='auto'>
+            <Card style={{ width: '18rem' }}>
+              <ListGroup className='list-group-flush'>
+                <ListGroupItem>
+                  {'Name : ' + (data && data[0] ? data[0].name : 'Loading')}
+                </ListGroupItem>
 
-              <ListGroupItem>
-                {'age : ' + (data && data[0] ? data[0].age : 'Loading')}
-              </ListGroupItem>
-              <ListGroupItem>
-                {'Diagnosis : ' +
-                  (data && data[0] ? data[0].diagnosis : 'Loading')}
-              </ListGroupItem>
-              <ListGroupItem>
-                {'DOB: ' + (data && data[0] ? data[0].dob : 'Loading')}
-              </ListGroupItem>
-              <ListGroupItem>
-                {'Height : ' + (data && data[0] ? data[0].height : 'Loading')}
-              </ListGroupItem>
-              <ListGroupItem>
-                {'Weight : ' + (data && data[0] ? data[0].weight : 'Loading')}
-              </ListGroupItem>
-              <ListGroupItem>
-                {'Contact Number : ' +
-                  (data && data[0] ? data[0].phNumber : 'Loading')}
-              </ListGroupItem>
-            </ListGroup>
-          </Card>
+                <ListGroupItem>
+                  {'Age : ' + (data && data[0] ? data[0].age : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'DOB : ' + (data && data[0] ? data[0].dob : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Contact Number : ' +
+                    (data && data[0] ? data[0].phNumber : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Height : ' + (data && data[0] ? data[0].height : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Weight : ' + (data && data[0] ? data[0].weight : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'BMI : ' + (data && data[0] ? data[0].BMI : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'BSA : ' + (data && data[0] ? data[0].BSA : 'Loading')}
+                </ListGroupItem>
+              </ListGroup>
+            </Card>
+          </Col>
+          <Col md='auto'>
+            <Card style={{ width: '18rem' }}>
+              <ListGroup className='list-group-flush'>
+                <ListGroupItem>
+                  {'Allergy : ' +
+                    (data && data[0] ? data[0].allergy : 'Loading')}
+                </ListGroupItem>
+
+                <ListGroupItem>
+                  {'Chief Complaints : ' +
+                    (data && data[0] ? data[0].cheifComplaints : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Physical Examination : ' +
+                    (data && data[0] ? data[0].physicalExamination : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Diagnosis : ' +
+                    (data && data[0] ? data[0].diagnosis : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Medical Plan: ' +
+                    (data && data[0] ? data[0].plan : 'Loading')}
+                </ListGroupItem>
+                <ListGroupItem>
+                  {'Current Medication : ' +
+                    (data && data[0] ? data[0].currentMedication : 'Loading')}
+                </ListGroupItem>
+              </ListGroup>
+            </Card>
+          </Col>
         </Row>
       </Container>
       <Container className='mt-5'>
