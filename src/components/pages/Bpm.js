@@ -96,7 +96,7 @@ const Bpm = () => {
     <Container className='mt-5'>
       <h1>
         <Badge bg='secondary' className='mb-3'>
-          Blood Pressure Monitoring{' '}
+          Heart Rate{' '}
         </Badge>
       </h1>
 
