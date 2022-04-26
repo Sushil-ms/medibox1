@@ -11,15 +11,15 @@ import Edit from './components/pages/Edit';
 import View from './components/pages/View';
 import Bpm from './components/pages/Bpm';
 import Temperature from './components/pages/Temperature';
-import Medicinestatus from './components/pages/Medicinestatus'
+import Medicinestatus from './components/pages/Medicinestatus';
 import Spo2 from './components/pages/Spo2';
 import AddMedication1 from './components/pages/AddMedication1';
 import Mqtt from './components/pages/Mqtt';
 import Mqtttime from './components/pages/Mqtttime';
 import EmailForm from './components/Forms/EmailForm';
 import Appointments from './components/pages/Appointments';
-
-
+import PatientView from './components/pages/PatientView';
+import PatientMedicine from './components/pages/PatientMedicine';
 
 function App() {
   return (
@@ -68,6 +68,12 @@ function App() {
           </Route>
           <Route exact path='/Appointments'>
             <Appointments />
+          </Route>
+          <Route exact path='/PatientView'>
+            <PatientView />
+          </Route>
+          <Route exact path='/PatientMedicine'>
+            <PatientMedicine />
           </Route>
         </Switch>
       </div>

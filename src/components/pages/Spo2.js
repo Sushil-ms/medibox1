@@ -12,13 +12,13 @@ const Spo2 = () => {
   const [chartdata, setChartData] = useState([]);
 
   let query = `  from(bucket: "MediBox")
-  |> range(start: -7d)
+  |> range(start: -1h)
   |> filter(fn: (r) => r["_measurement"] == "medicinestatus")
   |> filter(fn: (r) => r["_field"] == "spo2")
   |> group (columns: ["temp"])   // all durations - each jobname has its table                      // each table has only the last value
   |> drop (columns: ["_start", "_stop"])
   |> map(fn: (r) => ({ r with _field: r.temp}))   // hack: transfer the tag-name
-  |> limit (n: 10)                      // Now there is only ONE table
+  |> limit (n: 20)                      // Now there is only ONE table
   |> group(columns: ["_time"], mode:"by")
   |> sort(columns: ["_time"], desc: false)`;
 

@@ -20,13 +20,13 @@ const Bpm = () => {
   const [chartdata, setChartData] = useState([]);
 
   let query = `  from(bucket: "MediBox")
-  |> range(start: -7d)
+  |> range(start: -2h)
   |> filter(fn: (r) => r["_measurement"] == "medicinestatus")
   |> filter(fn: (r) => r["_field"] == "BPM")
   |> group (columns: ["temp"])   // all durations - each jobname has its table                      // each table has only the last value
   |> drop (columns: ["_start", "_stop"])
   |> map(fn: (r) => ({ r with _field: r.temp}))   // hack: transfer the tag-name
-  |> limit (n: 10)                      // Now there is only ONE table
+  |> limit (n: 100)                      // Now there is only ONE table
   |> group(columns: ["_time"], mode:"by")
   |> sort(columns: ["_time"], desc: false)`;
 

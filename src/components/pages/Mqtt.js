@@ -197,7 +197,7 @@ const Mqtt = () => {
               colors={['#5BE12C', '#F5CD19', '#EA4228']}
               formatTextValue={() => tempinfo.ObjectTemp + ' °C'}
               percent={
-                tempinfo.ObjectTemp != 0 ? +tempinfo.ObjectTemp / 100 - 0.3 : 0
+                tempinfo.ObjectTemp != 0 ? +tempinfo.ObjectTemp / 100 + 0.3 : 0
               }
               arcPadding={0.02}
             />
@@ -217,7 +217,7 @@ const Mqtt = () => {
               formatTextValue={() => tempinfo.AmbientTemp + ' °C'}
               percent={
                 tempinfo.AmbientTemp != 0
-                  ? +tempinfo.AmbientTemp / 100 - 0.3
+                  ? +tempinfo.AmbientTemp / 100 + 0.3
                   : 0
               }
               arcPadding={0.02}
@@ -279,7 +279,7 @@ const Mqtt = () => {
           </Col>
         </Row>
         <Row>
-          <Col className="mb-4">
+          <Col className='mb-4'>
             {/* <Chip avatar={<Avatar>Bpm</Avatar>} label={info.message1}></Chip> */}
             <Button className='mx-4' type='submit' onClick={handleConnectBpm}>
               {bpmconnectStatus}

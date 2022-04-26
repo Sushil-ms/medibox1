@@ -11,7 +11,7 @@ const Navigation=()=>{
     return (
       <Navbar bg='dark' variant='dark'>
         <Container>
-          <LinkContainer to='/Home'>
+          <LinkContainer to='/PatientView'>
             <Navbar.Brand>MediBox-IOT</Navbar.Brand>
           </LinkContainer>
           <Nav className='mr-auto'>
